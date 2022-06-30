@@ -38,7 +38,9 @@ public class FavoriteFoodsAdapter extends RecyclerView.Adapter<FavoriteFoodsAdap
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                holder.itemView.getContext().startActivity(new Intent(  holder.itemView.getContext(),FoodDetailActivity.class));
+                Intent intent = new Intent( holder.itemView.getContext(),FoodDetailActivity.class);
+                intent.putExtra("image",favoriteFoodsArrayList.get(position).foodImage);
+                holder.itemView.getContext().startActivity(intent);
             }
         });
 
